@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariscos cheos - Editar datos</title>
-</head>
-<body>
+<x-main_template titulo="Editar producto - Mariscos Cheos">
     <h2>Editar datos de {{ $platillo->nombre_platillo }}</h2>
 
     <form action="/platillo/{{ $platillo->id }}" method="POST">
@@ -44,5 +36,4 @@
             <input type="button" value="Cancelar">
         </a>
     </form>
-</body>
-</html>
+</x-template>

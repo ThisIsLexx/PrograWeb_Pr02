@@ -1,55 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariscos Cheos - Index</title>
-</head>
-<body>
-    <h1>INDEX DE MARISCOS CHEOS</h1>
+<x-main_template titulo="Productos - Mariscos Cheos">   
+    <h2 class="center">Productos registrados</h2>
 
-    <table border="1">
-        <tr>
-            <th>Nombre</th>
-            <th>Tamaño</th>
-            <th>Precio</th>
-            <th>Descripción</th>
-        </tr>
-        @if(!empty($platillos))
-            @foreach($platillos as $platillo)
-                <tr>
-                    <td>
-                        <a href="/platillo/{{ $platillo->id }}"> {{ $platillo->nombre_platillo }}</a>
-                    </td>
-                    <td>{{ $platillo->tam_platillo }}</td>
-                    <td>{{ $platillo->precio_platillo }}</td>
-                    <td>{{ $platillo->descripcion_platillo }}</td>
-                    <td>    
-                        <a href="/platillo/{{ $platillo->id }}/edit">Editar</a>
-                    </td>
-                    <td>
-                        <a href="">
-                            <form action="/platillo/{{ $platillo->id }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-
-                                <input type="submit" value="🗑️">
-
-                            </form>
-                            </a>
-                    </td>
-
-                    
+    <div class="container z-depth-1">
+        <table class="centered highlight">
+            <thead>
+                <tr class="deep-orange lighten-2">
+                    <th>Nombre del producto</th>
+                    <th>Tamaño</th>
+                    <th>Precio</th>
+                    <th>Descripción</th>
+                    <th></th>
+                    <th><a href="/platillo/create" class="waves-light btn-small deep-orange lighten-3">Agregar</a></th>
                 </tr>
-
-            @endforeach
-        @endif
-    </table>
-
-
-    <ul>
+            </thead>
+            <tbody>
+                @if(!empty($platillos))
+                    @foreach($platillos as $platillo)
+                        <tr>
+                            <td>
+                                <a href="/platillo/{{ $platillo->id }}" class="deep-orange-text"> {{ $platillo->nombre_platillo }}</a>
+                            </td>
+                            <td>{{ $platillo->tam_platillo }}</td>
+                            <td>{{ $platillo->precio_platillo }}</td>
+                            <td>{{ $platillo->descripcion_platillo }}</td>
+                            <td>    
+                                <a href="/platillo/{{ $platillo->id }}/edit" class="deep-orange-text">Editar</a>
+                            </td>
+                            <td>
+                                <a href="">
+                                    <form action="/platillo/{{ $platillo->id }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
         
-    </ul>
-</body>
-</html>
+                                        <input type="submit" value="Eliminar" class="waves-light btn-small deep-orange lighten-3">
+        
+                                    </form>
+                                    </a>
+                            </td>
+        
+                            
+                        </tr>
+        
+                    @endforeach
+                @endif
+            </tbody>
+        </table>
+    </div>
+</x-main_template>

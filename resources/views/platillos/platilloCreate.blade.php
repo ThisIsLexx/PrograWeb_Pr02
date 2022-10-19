@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariscos Cheos - Agregar Platillo</title>
-</head>
-<body>
+<x-main_template titulo="Insertar Producto - Mariscos Cheos">
     <form action="/platillo" method="POST">
         @csrf
         <label for="nombre_platillo">Nombre del platillo:</label><br>
@@ -27,5 +19,4 @@
 
         <input type="submit" value="Agregar platillo">
     </form>
-</body>
-</html>
+</x-main_template>

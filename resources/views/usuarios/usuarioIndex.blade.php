@@ -1,36 +1,39 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariscos cheos - Login</title>
-
-    @vite(['resources/css/materialize.css', 'resources/js/materialize.js'])
-</head>
-
-<body>
-    <h2 class="center">MARISCOS CHEO'S</h2>
-    <h4 class="center">since 1989</h4>
-
-    <div class="card">
-        <form action="/usuario_SignIn" method="POST">
-            @csrf
+<x-main_template titulo="Inicio de sesión - Mariscos Cheos">
     
-            <label for="username">Nombre de usuario</label><br>
-            <input type="text" name="username" required><br>
+    <div class="container z-depth-1" style="margin-top:60px; padding:50px; border-radius:5px;">
+        <div class="row">
+            <form action="/usuario_SignIn" method="POST">
+                @csrf
+                <div class="row">
+                    <img class="responsive-img" src="">
+                    <h4 class="center">since 1989</h4>
+                </div>
     
-            <label for="password">Contraseña</label><br>
-            <input type="password" name="password" required><br><br>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="username">Nombre de usuario</label>
+                        <input type="text" name="username" required>
+                    </div>
+                </div>
     
-            <input type="submit" value="Iniciar sesión" class="btn deep-orange lighten-2">
+                <div class="row">
+                    <div class="input-field col s12">
+                    <label for="password">Contraseña</label><br>
+                        <input type="password" name="password" required>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="center">
+                        <input type="submit" value="Iniciar sesión" class="btn-large deep-orange lighten-2">
+                        <p class="center">
+                            No tienes una cuenta? <a href="/usuario/create" class="deep-orange-text lighten-2">Registrate aqui!</a>
+                        </p>
+                    </div>
+                </div>
                 
-        </form>        
+            </form>
+        </div>
     </div>
 
-    <p>
-        No tienes una cuenta? <a href="/usuario/create" class="deep-orange-text lighten-2">Registrate aqui!</a>
-    </p>
 
-</body>
-</html>
+</x-main_template>

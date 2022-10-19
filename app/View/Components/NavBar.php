@@ -4,18 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class main_template extends Component
+class NavBar extends Component
 {
-
-    public $titulo;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($titulo)
+    public function __construct()
     {
-        this->titulo = $titulo;
+        //
     }
 
     /**
@@ -25,6 +23,6 @@ class main_template extends Component
      */
     public function render()
     {
-        return view('components.main_template');
+        return view('components.nav-bar');
     }
 }
