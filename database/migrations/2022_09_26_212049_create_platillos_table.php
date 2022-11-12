@@ -17,7 +17,7 @@ class CreatePlatillosTable extends Migration
             $table->id();
             $table->string('nombre_platillo');
             $table->char('tam_platillo');
-            $table->integer('precio_platillo');
+            $table->unsignedInteger('precio_platillo');
             $table->text('descripcion_platillo');
         });
     }

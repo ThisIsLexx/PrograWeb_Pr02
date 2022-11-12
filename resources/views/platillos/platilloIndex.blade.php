@@ -1,16 +1,25 @@
 <x-main_template titulo="Productos - Mariscos Cheos">   
-    <h2 class="center">Productos registrados</h2>
+    
+    <div class="container">
+        <h2 class="center flow-text">Productos registrados</h2>
+        
+        @if(sizeof($platillos) == 0)
+            <h6 class="center blue-text lighten-3">
+                Aun no hay productos registrados!
+            </h6>
+        @endif
+    </div>
 
     <div class="container z-depth-1">
         <table class="centered highlight">
             <thead>
-                <tr class="deep-orange lighten-2">
+                <tr class="blue lighten-2">
                     <th>Nombre del producto</th>
                     <th>Tamaño</th>
                     <th>Precio</th>
                     <th>Descripción</th>
                     <th></th>
-                    <th><a href="/platillo/create" class="waves-light btn-small deep-orange lighten-3">Agregar</a></th>
+                    <th><a href="/platillo/create" class="waves-light btn-small blue lighten-3">Agregar</a></th>
                 </tr>
             </thead>
             <tbody>
@@ -18,13 +27,13 @@
                     @foreach($platillos as $platillo)
                         <tr>
                             <td>
-                                <a href="/platillo/{{ $platillo->id }}" class="deep-orange-text"> {{ $platillo->nombre_platillo }}</a>
+                                <a href="/platillo/{{ $platillo->id }}" class="blue-text"> {{ $platillo->nombre_platillo }}</a>
                             </td>
                             <td>{{ $platillo->tam_platillo }}</td>
                             <td>{{ $platillo->precio_platillo }}</td>
                             <td>{{ $platillo->descripcion_platillo }}</td>
                             <td>    
-                                <a href="/platillo/{{ $platillo->id }}/edit" class="deep-orange-text">Editar</a>
+                                <a href="/platillo/{{ $platillo->id }}/edit" class="blue-text">Editar</a>
                             </td>
                             <td>
                                 <a href="">
@@ -32,7 +41,7 @@
                                         @csrf
                                         @method('DELETE')
         
-                                        <input type="submit" value="Eliminar" class="waves-light btn-small deep-orange lighten-3">
+                                        <input type="submit" value="Eliminar" class="btn-flat red-text lighten-3">
         
                                     </form>
                                     </a>
