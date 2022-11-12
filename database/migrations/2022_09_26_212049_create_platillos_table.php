@@ -15,6 +15,7 @@ class CreatePlatillosTable extends Migration
     {
         Schema::create('platillos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('nombre_platillo');
             $table->char('tam_platillo');
             $table->unsignedInteger('precio_platillo');

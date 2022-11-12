@@ -13,13 +13,20 @@
         
         
         <div class="row">
+
             <div class="container">
-                <h5> Precio del platillo: ${{ number_format($platillo->precio_platillo, 2) }}</h5>
+                <h5>Encargado de registro: {{ $platillo->user->name }} </h5>
             </div>
+
             <div class="container">
-                <h4>
+                <h5> Precio del platillo: ${{ number_format($platillo->precio_platillo, 2) }} MXN</h5>
+            </div>
+
+            <div class="container">
+                <h5>Descripción: </h5>
+                <h5>
                     {{ $platillo->descripcion_platillo }}
-                </h4>
+                </h5>
             </div>
         </div>
         @endif

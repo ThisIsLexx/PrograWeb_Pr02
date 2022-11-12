@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Platillo;
 use Illuminate\Http\Request;
+use illuminate\Support\Facades\Auth;
 
 class PlatilloController extends Controller
 {
@@ -48,6 +49,7 @@ class PlatilloController extends Controller
             'descripcion_platillo' => 'required',
         ]);
 
+        $request->merge(['user_id' => Auth::id()]);
         Platillo::create($request->all());
 
         return redirect('/platillo');

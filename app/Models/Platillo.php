@@ -15,6 +15,7 @@ class Platillo extends Model
         'tam_platillo',
         'precio_platillo',
         'descripcion_platillo',
+        'user_id',
     ];
     
     //Protected $guarded toma los atributos que no pueden ser manipulados por el usuario, por ejemplo, un ID.
