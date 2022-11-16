@@ -36,15 +36,17 @@
                                 <a href="/platillo/{{ $platillo->id }}/edit" class="blue-text">Editar</a>
                             </td>
                             <td>
-                                <a href="">
-                                    <form action="/platillo/{{ $platillo->id }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-        
-                                        <input type="submit" value="Eliminar" class="btn-flat red-text lighten-3">
-        
-                                    </form>
+                                @if($platillo->user_id === Auth::id())
+                                    <a href="">
+                                        <form action="/platillo/{{ $platillo->id }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+            
+                                            <input type="submit" value="Eliminar" class="btn-flat red-text lighten-3">
+            
+                                        </form>
                                     </a>
+                                @endif
                             </td>
         
                             

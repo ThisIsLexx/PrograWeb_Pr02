@@ -25,8 +25,7 @@ Route::resource('platillo', PlatilloController::class);
 
 //php artisan route:list para ver las rutas que estan siendo creadas.
 
-//Creación de las rutas para el modelo Usuario.
-Route::resource('usuario',UsuarioController::class);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
