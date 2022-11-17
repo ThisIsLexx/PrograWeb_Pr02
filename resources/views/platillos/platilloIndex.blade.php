@@ -2,7 +2,7 @@
     
     <div class="container">
         <h2 class="center flow-text">Productos registrados</h2>
-        
+
         @if(sizeof($platillos) == 0)
             <h6 class="center blue-text lighten-3">
                 Aun no hay productos registrados!
@@ -47,9 +47,11 @@
                                         </form>
                                     </a>
                                 @endif
+
+                                @if($platillo->user_id !== Auth::id())
+                                    <input type="submit" disabled value="Eliminar" class="btn-flat gray-text lighten-3"">
+                                @endif
                             </td>
-        
-                            
                         </tr>
         
                     @endforeach

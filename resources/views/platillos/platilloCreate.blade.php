@@ -6,7 +6,10 @@
         <div class="container">
             <div class="input-field">
                 <label for="nombre_platillo">Nombre del platillo:</label><br>
-                <input type="text" required name="nombre_platillo"><br>
+                <input type="text" required name="nombre_platillo" value="{{ old('nombre_platillo') }}"><br>
+                @error('nombre_platillo')
+                    <p>Porfavor ingrese un nombre valido!</p>
+                @enderror
             </div>
     
             <div class="input-field">
@@ -33,12 +36,18 @@
 
             <div class="input-field">
                 <label for="precio_platillo">Precio del platillo:</label><br>
-                <input type="number" required name="precio_platillo"><br>
+                <input type="number" required name="precio_platillo" value="{{ old('precio_platillo') }}"><br>
+                @error('precio_platillo')
+                        <p class="text-red">Porfavor ingrese un precio valido!</p>
+                @enderror
             </div>
     
             <div class="input-field">
                 <label for="descripcion_platillo">Descripción breve:</label><br><br>
-                <textarea class="materialize-textarea" required name="descripcion_platillo" placeholder="Como se prepara el platillo..."></textarea>
+                <textarea class="materialize-textarea" required name="descripcion_platillo" placeholder="Como se prepara el platillo...">{{ old('descripcion_platillo') }}</textarea>
+                @error('descripcion_platillo')
+                        <p>Porfavor ingrese una descripcion valida!</p>
+                @enderror
             </div>
     
             <div class="center input-field">
